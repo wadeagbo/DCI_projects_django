@@ -1,0 +1,10 @@
+{% extends "base.html" %} 
+{% block some_content %} 
+
+{{ block.super }}
+
+<h1>{{ product_title }}</h1>
+
+<div>{{ price }}</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+    <ul>
+        {% for url in urls %}
+        
+        <li> Long URL: <a href="{% url 'url_redirect' url.shortened %}">{{ url.long_url }}</a> </li>
+            Short URL: <a href="{% url 'url_redirect' url.shortened %}">{{ url.shortened }}</a>
+            Expiration date : <a href="{% url 'url_redirect' url.shortened %}">{{url.expiration_date}}</a>
+            
+    
+        {% endfor %}
+    </ul>

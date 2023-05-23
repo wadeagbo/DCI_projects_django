@@ -1,0 +1,18 @@
+<!--base.html template--> 
+
+
+<header>
+    <a href="{% url 'about_F' %}">About_F</a>  
+    <a href="{% url 'base' %}">Base_F</a>  
+    <a href="{% url 'about_C' %}">About_C</a>
+    <a href="{% url 'home_C' %}">Home_C</a>
+</header>
+
+
+
+{% block content%} 
+
+<h>This is the base</h>
+<p>I expect this to be overwritten by child (e.g. about) </p>
+
+{% endblock content%}

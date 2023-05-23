@@ -1,0 +1,25 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Django authorization page{% endblock %}</title>
+</head>
+<body>
+  <main>
+
+   
+    <a href="{% url 'home' %}">Home</a>
+
+    <a href="{% url 'login' %}">Login</a>
+    
+    {% if request.session.user_id %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+    
+  </main>
+</body>
+</html>

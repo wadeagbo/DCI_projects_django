@@ -1,0 +1,13 @@
+<!-- templates/shop_list.html-->
+{% extends  "base.html" %}
+
+{% block content %}
+
+<strong> Here is shop list</strong>
+
+{% for i in list %}
+  <p><a href="{% url 'item' i %}"> {{i}}</a></p>
+<!--   <p> <a href=  "/shop/{{i}}"> {{i}}  </a> </p>   -->  
+{% endfor %}
+
+{% endblock content %}

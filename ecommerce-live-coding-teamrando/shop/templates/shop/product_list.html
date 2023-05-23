@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+
+{% block title %}
+Hot Products |
+{% endblock %}
+
+{% block content %}
+<h1>List of products ({{number_of_products}})</h1>
+{% for product in products %}
+    <h2>{{ product.name }}</h2>
+    {% if product.photo %}
+    <p>
+        <a href="{% url 'product-detail' product.id %}">
+            <img width="500" src="{{ MEDIA_URL }}{{ product.photo }}">
+        </a>
+    </p>
+    {% endif %}
+    <p>
+        <a href="{% url 'product-detail' product.id %}">View</a>
+    </p>
+{% endfor %}
+
+{% endblock %}

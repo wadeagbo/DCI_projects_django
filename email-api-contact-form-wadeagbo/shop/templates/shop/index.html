@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block some_content %}
+    {% comment %}
+    This is the main page for our shop!
+    {{ form }}
+    <hr>
+    {{ car.as_table }}
+    <hr>
+    {{ hotel }}
+    <hr>
+    {% for field in hotel %}
+     <tt>{{ field.label }} - {{ field }}</tt><br/>
+    {% endfor %} 
+
+    {% endcomment %}
+
+
+    <h1>Contact us</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Contact us</button>
+    </form>
+   
+{% endblock %}

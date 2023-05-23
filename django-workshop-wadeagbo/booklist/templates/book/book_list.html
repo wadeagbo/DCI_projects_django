@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} ({{ book.publication_date }})</li>
+        {% empty %}
+        <li>No books yet.</li>
+        {% endfor %}
+    </ul>
+    <h2>Add a new book</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    {% if request.POST and form.is_valid %}
+        <p>Book "{{ form.cleaned_data.title }}" added successfully!</p>
+    {% endif %}
+</body>
+</html>

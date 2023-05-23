@@ -1,0 +1,10 @@
+<h1>List of feedback from customers</h1>
+
+
+<ul>
+    {% for a_feedback in feedback %}
+    <li>{{ a_feedback }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'feedback:new_feedback' %}">Send feedback</a>

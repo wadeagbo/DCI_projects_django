@@ -1,0 +1,30 @@
+name: DCI fun group project-Continuous Deployment
+
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macOS-latest #ubuntu-latest # use your web server system 
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.8]
+    
+    steps:        
+    - uses: actions/checkout@v2
+    - name: Setup Python ${{matrix.python-version}}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{matrix.python-version}}
+    - name: Install dependencies class !! heck ya!
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run the bloody tests
+      run: |
+        python manage.py test

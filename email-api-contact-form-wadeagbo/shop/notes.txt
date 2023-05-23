@@ -1,0 +1,9 @@
+Contact Form
+============
+- name
+- email
+- reason (detail)
+
+======
+- email sending from form on success 
+- Working with APIs e.g. Mailchimp 

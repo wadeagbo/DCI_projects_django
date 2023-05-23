@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>Followers</h1>
+
+    {% if followers %}
+        There are followers
+    {% else %}
+        <div class="alert alert-warning">
+            You do not have any followers
+        </div>
+    {% endif %}
+    
+    {% if user_profiles %}
+    <h2>System Users</h2>
+
+    <div class="alert alert-primary">
+        You can follow some of the users below!
+    </div>
+    <hr>
+        {% for profile in user_profiles %}
+            <div>
+                <h3>{{ profile.user }}</h3>
+                {%  if profile.bio  %}<div>{{ profile.bio }}</div>{% endif %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="username" value="{{ profile.user }}">
+                    <button class="btn btn-primary">Follow</button>
+                </form>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+    
+{% endblock %}
